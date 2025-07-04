@@ -8,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class App {
   protected title = 'music-mood-logger';
+  selected="home";
+
+  setSelected(naem : string) {
+    this.selected=naem;
+  }
 }

@@ -1,0 +1,53 @@
+mat-card {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease;
+}
+mat-card:hover {
+  transform: scale(1.01);
+}
+
+.happy-card {
+  background-color: #fff8e1; 
+  border-left: 8px solid #ffeb3b;
+}
+
+.sad-card {
+  background-color: #e3f2fd; 
+  border-left: 8px solid #2196f3;
+}
+
+.energetic-card {
+  background-color: #fce4ec; 
+  border-left: 8px solid #f50057;
+}
+
+.chill-card {
+  background-color: #ede7f6; 
+  border-left: 8px solid #673ab7;
+}
+
+.emoji {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-content {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.entry-image {
+  width: 100px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.card-details {
+  flex: 1;
+}

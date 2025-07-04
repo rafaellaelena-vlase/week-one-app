@@ -1,0 +1,53 @@
+<mat-card>
+    <mat-form-field appearance="fill">
+        <mat-label> Song Title </mat-label>
+        <input matInput [(ngModel)]="newMood.song">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+    <mat-label>Song Link</mat-label>
+    <input matInput [(ngModel)]="newMood.url" placeholder="https:/...">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+    <mat-label>Image URL (optional)</mat-label>
+    <input matInput [(ngModel)]="newMood.imageUrl" placeholder="https://...">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Mood</mat-label>
+        <mat-select [(ngModel)]="newMood.mood">
+            <mat-option value="happy"> 
+                happy
+            </mat-option>
+            <mat-option value="sad"> 
+                sad
+            </mat-option>
+            <mat-option value="energetic"> 
+                energetic
+            </mat-option>
+            <mat-option value="chill"> 
+                chill
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="addMood()">Add Mood</button>
+</mat-card>
+
+<mat-card *ngFor="let m of moods" [ngClass]="getMoodClass(m.mood)">
+  <div class="card-content">
+    <img *ngIf="m.imageUrl" [src]="m.imageUrl" alt="{{ m.song }}" class="entry-image" />
+
+    <div class="card-details">
+      <div class="emoji">{{ getMoodEmoji(m.mood) }}</div>
+      <h3>Mood: {{ m.mood | uppercase }}</h3>
+      <p>
+        Song:
+        <a *ngIf="m.url" [href]="m.url" target="_blank">{{ m.song }}</a>
+        <span *ngIf="!m.url">{{ m.song }}</span>
+      </p>
+      <p>Logged: {{ m.date | date: 'medium' }}</p>
+    </div>
+  </div>
+</mat-card>
