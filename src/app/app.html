@@ -19,6 +19,25 @@
         <mat-icon>music_note</mat-icon>
         <span>Mood</span>
       </button>
+
+      <button
+        mat-list-item
+        [ngClass]="{ selected: selected === 'profile' }"
+        (click)="setSelected('profile')"
+      >
+        <mat-icon>person</mat-icon>
+        <span>Profile</span>
+      </button>
+
+      <button
+        mat-list-item
+        [ngClass]="{ selected: selected === 'settings' }"
+        (click)="setSelected('settings')"
+      >
+        <mat-icon>settings</mat-icon>
+        <span>Settings</span>
+      </button>
+
     </mat-nav-list>
   </mat-sidenav>
 
@@ -34,6 +53,8 @@
     <div class="content">
       <app-mood-logger *ngIf="selected === 'mood'"></app-mood-logger>
       <app-home *ngIf="selected === 'home'"></app-home>
+      <app-profile *ngIf="selected === 'profile'"></app-profile>
+      <app-settings *ngIf="selected === 'settings'"></app-settings>
     </div>
   </mat-sidenav-content>
 

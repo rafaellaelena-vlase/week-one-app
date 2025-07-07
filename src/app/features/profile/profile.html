@@ -1,0 +1,67 @@
+<div class="container">
+    <h2> Complete your profile! </h2>
+<form #form="ngForm" class="row g-3 needs-validation">
+  <div class="col-md-4">
+    <label >First name <span class="text-danger"> *</span></label>
+    <input type="text" name="firstName" #fname="ngModel" required [(ngModel)]="userObj.firstName" class="form-control">
+    <div class="text-danger">
+        @if(fname.errors?.['required'] && fname.touched && fname.dirty) {
+            <span>Required</span>
+        }
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label >Last name <span class="text-danger"> *</span></label>
+    <input type="text" name="lastName" required minlength="4" #lname="ngModel" [(ngModel)]="userObj.lastName" class="form-control">
+    <div class="text-danger">
+        <span *ngIf="lname.errors?.['reqiured'] && lname.touched">Required</span>
+        <span *ngIf="lname.errors?.['minlength'] && lname.touched">Minimum length: 4 characters</span>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <label >Username</label>
+    <div class="input-group has-validation">
+      <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
+      <input type="text" name="userName" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" #uname="ngModel" [(ngModel)]="userObj.userName" class="form-control">
+      <div class="text-danger">
+        <span *ngIf="uname.errors?.['pattern'] && uname.touched">Invalid Email Format</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label >City</label>
+    <input type="text" name="city" [(ngModel)]="userObj.city" class="form-control">
+  </div>
+  <div class="col-md-3">
+    <label >Default Mood</label>
+    <select class="form-select" name="state" [(ngModel)]="userObj.mood">
+      <option selected disabled value="">Choose...</option>
+      <option value="Happy">Happy</option>
+      <option value="Sad">Sad</option>
+      <option value="Energetic">Energetic</option>
+      <option value="Chill">Chill</option>
+    </select>
+  </div>
+  <!-- <div class="col-md-3">
+    <label >Zip</label>
+    <input type="text" name="zipCode" [(ngModel)]="userObj.zipCode" class="form-control">
+  </div> -->
+  <div class="col-12">
+    <div class="form-check">
+      <input class="form-check-input" name="isTermsAgreed" [(ngModel)]="userObj.isTermsAgreed" type="checkbox">
+      <label class="form-check-label" for="invalidCheck">
+        Agree to terms and conditions
+      </label>
+      <div class="invalid-feedback">
+        You must agree before submitting.
+      </div>
+    </div>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" [disabled]="form.invalid" type="button" (click)="onSave()">Submit form</button>
+  </div>
+</form>
+</div>
+
+
+
