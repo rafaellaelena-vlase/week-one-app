@@ -9,13 +9,18 @@
         <mat-option value="dark">Dark</mat-option>
         <mat-option value="light">Light</mat-option>
       </mat-select>
-      <!--why u no work-->
-      <mat-error *ngIf="settingsForm.hasError('darkThemeEmojiConflict') && settingsForm.touched">
+      <!--why u no work--> 
+      <!-- <mat-error *ngIf="settingsForm.hasError('darkThemeEmojiConflict') && settingsForm.touched">
         We don't recommend displaying emojis in dark mode!
-      </mat-error>
+      </mat-error> -->
     </mat-form-field>
-
+    <div class=""text-danger>
+        @if(settingsForm.errors?.['darkThemeEmojiConflict'] && settingsForm.touched) {
+          <span>We don't recommend displaying emojis in dark mode!</span>
+        }
+    </div>
     <mat-divider class="my-divider"></mat-divider>
+    
 
     <mat-slide-toggle formControlName="showEmoji">
       Show Emoji in Mood Entries

@@ -23,6 +23,7 @@ import { MoodLogger } from './features/mood-logger/mood-logger';
 import { Home } from './features/home/home';
 import { Profile } from './features/profile/profile';
 import { Settings } from './features/settings/settings';
+import { CustomInput } from './features/custom-input/custom-input';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { Settings } from './features/settings/settings';
     Home,
     Profile,
     Settings,
+    CustomInput,
   ],
   imports: [
     BrowserModule,

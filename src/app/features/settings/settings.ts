@@ -17,11 +17,7 @@ import {
   styleUrl: './settings.scss'
 })
 
-export class Settings implements OnInit{
-
-    color = 'accent';
-    checked = false;
-    disabled = false;
+export class Settings implements OnInit {
 
     settingsForm!: FormGroup;
     isNotificationEnabled = new FormControl();
@@ -58,7 +54,7 @@ export const themeShowEmojiValidator: ValidatorFn = (group: AbstractControl): Va
   const theme = group.get('theme')?.value;
   const showEmoji = group.get('showEmoji')?.value;
 
-  if (theme === 'dark' && showEmoji === 'true') {
+  if (theme === 'dark' && showEmoji === true) {
     return {
       darkThemeEmojiConflict: true
     }

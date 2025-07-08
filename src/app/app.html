@@ -38,6 +38,15 @@
         <span>Settings</span>
       </button>
 
+      <button
+        mat-list-item
+        [ngClass]="{ selected: selected === 'contact' }"
+        (click)="setSelected('contact')"
+      >
+        <mat-icon>feedback</mat-icon>
+        <span>Give feedback</span>
+      </button>
+
     </mat-nav-list>
   </mat-sidenav>
 
@@ -55,6 +64,54 @@
       <app-home *ngIf="selected === 'home'"></app-home>
       <app-profile *ngIf="selected === 'profile'"></app-profile>
       <app-settings *ngIf="selected === 'settings'"></app-settings>
+
+      <div *ngIf="selected === 'contact'" style="
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            ">
+        <div *ngIf="selected === 'contact'" style="
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #ccc;
+            box-shadow: 4px 4px 4px #ccc;
+            width: 400px;
+            height: 500px;
+            border-radius: 10px;
+            padding: 20px;
+            gap: 15px;
+            ">
+          <app-custom-input *ngIf="selected === 'contact'" 
+                            placeholder="Enter your name" 
+                            type="text" 
+                            [control]="getControl('name')"
+                            >
+          </app-custom-input>
+          <div class="text-danger" *ngIf="form.get('name')?.invalid && (form.get('name')?.touched || form.get('name')?.dirty)">
+            <span>Required</span>
+          </div>
+          <app-custom-input *ngIf="selected === 'contact'" 
+                            placeholder="Enter your email address" 
+                            type="email" 
+                            [control]="getControl('email')"
+                            >
+          </app-custom-input>
+          <div class="text-danger" *ngIf="form.get('email')?.errors?.['email'] && form.get('email')?.touched">
+            <span>Wrong email format</span>
+          </div>
+          <app-custom-input *ngIf="selected === 'contact'" 
+                            placeholder="Write your feedback..." 
+                            type="textarea" 
+                            [control]="getControl('feedback')"
+                            >
+          </app-custom-input>
+          <div class="text-danger" *ngIf="form.get('feedback')?.errors?.['minlength'] && form.get('feedback')?.touched">
+            <span>Minimum number of characters is 5</span>
+          </div>
+          <button class="btn btn-primary" [disabled]="form.invalid" type="button">Submit feedback</button>
+        </div> 
+      </div>
     </div>
   </mat-sidenav-content>
 
