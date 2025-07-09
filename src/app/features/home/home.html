@@ -1,5 +1,32 @@
 <div class="welcome-container">
   <mat-card class="welcome-card">
-    <h2>Welcome to your daily musical mood tracker 🎵</h2>
+    <mat-card-header>
+      <mat-card-title>Welcome to your daily musical mood tracker 🎵</mat-card-title>
+      <!-- <mat-card-subtitle>{{formMode === 'login' ? 'Login' : 'Register'}}</mat-card-subtitle> -->
+    </mat-card-header>
+
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div *ngIf="formMode === 'register'">
+          <app-custom-input placeholder="Username" type="text" [control]="getControl('username')"></app-custom-input>
+          <div *ngIf="form.get('username')?.pending" class="form-hint">Checking username...</div>
+          <div *ngIf="form.get('username')?.errors?.['usernameTaken']" class="text-danger">Existing username</div>
+          <div *ngIf="form.get('username')?.errors?.['required'] && form.get('username')?.touched" class="text-danger">Username required!</div>
+        </div>
+        <app-custom-input placeholder="Email" type="email" [control]="getControl('email')"></app-custom-input>
+        <app-custom-input placeholder="Password" type="password" [control]="getControl('password')"></app-custom-input>
+      </form>
+    </mat-card-content>
+
+    <mat-card-actions class="card-actions">
+      <div>
+        <button mat-button (click)="switchFormMode('login')" [class.active]="formMode === 'login'">Login</button>
+        <button mat-button (click)="switchFormMode('register')" [class.active]="formMode === 'register'">Register</button>
+      </div>
+
+       <button mat-raised-button color="primary" [disabled]="form.invalid" (click)="onSubmit()">
+        {{formMode === 'login' ? 'Login' : 'Register'}}
+       </button>
+    </mat-card-actions>
   </mat-card>
 </div>

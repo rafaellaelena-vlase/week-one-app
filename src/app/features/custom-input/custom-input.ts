@@ -9,6 +9,6 @@ import { FormControl } from '@angular/forms';
 })
 export class CustomInput {
     @Input() placeholder?: string;
-    @Input() type?: 'text' | 'email' | 'number' | 'textarea';
+    @Input() type?: 'text' | 'email' | 'number' | 'textarea' | 'password';
     @Input() control: FormControl = new FormControl();
 }
