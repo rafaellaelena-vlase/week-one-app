@@ -1,8 +1,37 @@
 <!-- <input [type]="type" [placeholder]="placeholder" [formControl]="control" [class]="placeholder === 'Write your feedback...' ? 'feedback-input' : 'form-input'">
  -->
 
-<textarea *ngIf="type === 'textarea'; else inpuTBlock" [placeholder]="placeholder" [formControl]="control" class="feedback-input"></textarea>
+<!-- <textarea *ngIf="type === 'textarea'; else inpuTBlock" [placeholder]="placeholder" [formControl]="control" class="feedback-input"></textarea>
 
 <ng-template #inpuTBlock>
     <input [type]="type" [placeholder]="placeholder" [formControl]="control" class="form-input">
-</ng-template>
+</ng-template> -->
+
+<input
+  [type]="type"
+  [placeholder]="placeholder"
+  [value]="value"
+  [disabled]="disabled"
+  (input)="onInputChange($event)"
+  (blur)="onTouched()"
+  [class.is-invalid]="ngControl.invalid && ngControl.touched"
+  class="form-input"
+  appCustomDirective
+/>
+
+
+<div *ngIf="ngControl.invalid && ngControl.touched" class="text-danger">
+
+  <span *ngIf="ngControl.errors?.['required']">
+    Required
+  </span>
+
+  <span *ngIf="ngControl.errors?.['email']">
+    Incorrect format
+  </span>
+  
+  <span *ngIf="ngControl.errors?.['minlength']">
+    You must write a minimum of {{ ngControl.errors?.['minlength'].requiredLength }} characters.
+  </span>
+
+</div>

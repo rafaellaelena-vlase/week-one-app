@@ -8,13 +8,13 @@
     <mat-card-content>
       <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div *ngIf="formMode === 'register'">
-          <app-custom-input placeholder="Username" type="text" [control]="getControl('username')"></app-custom-input>
+          <app-custom-input placeholder="Username" type="text" formControlName="username"></app-custom-input>
           <div *ngIf="form.get('username')?.pending" class="form-hint">Checking username...</div>
           <div *ngIf="form.get('username')?.errors?.['usernameTaken']" class="text-danger">Existing username</div>
           <div *ngIf="form.get('username')?.errors?.['required'] && form.get('username')?.touched" class="text-danger">Username required!</div>
         </div>
-        <app-custom-input placeholder="Email" type="email" [control]="getControl('email')"></app-custom-input>
-        <app-custom-input placeholder="Password" type="password" [control]="getControl('password')"></app-custom-input>
+        <app-custom-input placeholder="Email" type="email" formControlName="email"></app-custom-input>
+        <app-custom-input placeholder="Password" type="password" formControlName="password"></app-custom-input>
       </form>
     </mat-card-content>
 

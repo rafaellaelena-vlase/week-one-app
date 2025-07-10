@@ -24,6 +24,8 @@ import { Home } from './features/home/home';
 import { Profile } from './features/profile/profile';
 import { Settings } from './features/settings/settings';
 import { CustomInput } from './features/custom-input/custom-input';
+import { MusicStats } from './features/music-stats/music-stats';
+import { CustomDirective } from './features/directives/custom-directive';
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { CustomInput } from './features/custom-input/custom-input';
     Profile,
     Settings,
     CustomInput,
+    MusicStats,
+    CustomDirective,
   ],
   imports: [
     BrowserModule,

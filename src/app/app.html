@@ -47,6 +47,14 @@
         <span>Give feedback</span>
       </button>
 
+      <button
+        mat-list-item
+        [ngClass]="{ selected: selected === 'stats' }"
+        (click)="setSelected('stats')"
+      >
+        <mat-icon>graphic_eq</mat-icon>
+        <span>Music Stats</span>
+      </button>
     </mat-nav-list>
   </mat-sidenav>
 
@@ -64,8 +72,9 @@
       <app-home *ngIf="selected === 'home'"></app-home>
       <app-profile *ngIf="selected === 'profile'"></app-profile>
       <app-settings *ngIf="selected === 'settings'"></app-settings>
+      <app-music-stats *ngIf="selected === 'stats'"></app-music-stats>
 
-      <div *ngIf="selected === 'contact'" style="
+      <div *ngIf="selected === 'contact'"  [formGroup]="form" style="
             display: flex;
             justify-content: center;
             align-items: center;
@@ -82,34 +91,55 @@
             padding: 20px;
             gap: 15px;
             ">
-          <app-custom-input *ngIf="selected === 'contact'" 
+          <!-- <app-custom-input *ngIf="selected === 'contact'" 
                             placeholder="Enter your name" 
                             type="text" 
-                            [control]="getControl('name')"
+                            formControlName="name"
                             >
-          </app-custom-input>
-          <div class="text-danger" *ngIf="form.get('name')?.invalid && (form.get('name')?.touched || form.get('name')?.dirty)">
-            <span>Required</span>
-          </div>
+          </app-custom-input> -->
+
           <app-custom-input *ngIf="selected === 'contact'" 
+            formControlName="name"
+            [customConfig]="inputConfig['name']"
+          >
+          </app-custom-input>
+
+          <!-- <div class="text-danger" *ngIf="form.get('name')?.invalid && (form.get('name')?.touched || form.get('name')?.dirty)">
+            <span>Required</span>
+          </div> -->
+          <!-- <app-custom-input *ngIf="selected === 'contact'" 
                             placeholder="Enter your email address" 
                             type="email" 
-                            [control]="getControl('email')"
+                            formControlName="email"
                             >
-          </app-custom-input>
-          <div class="text-danger" *ngIf="form.get('email')?.errors?.['email'] && form.get('email')?.touched">
-            <span>Wrong email format</span>
-          </div>
+          </app-custom-input> -->
+
           <app-custom-input *ngIf="selected === 'contact'" 
+            formControlName="email"
+            [customConfig]="inputConfig['email']"
+          >
+          </app-custom-input>
+
+          <!-- <div class="text-danger" *ngIf="form.get('email')?.errors?.['email'] && form.get('email')?.touched">
+            <span>Wrong email format</span>
+          </div> -->
+          <!-- <app-custom-input *ngIf="selected === 'contact'" 
                             placeholder="Write your feedback..." 
                             type="textarea" 
-                            [control]="getControl('feedback')"
+                            formControlName="feedback"
                             >
+          </app-custom-input> -->
+
+          <app-custom-input *ngIf="selected === 'contact'" 
+            formControlName="feedback"
+            [customConfig]="inputConfig['feedback']"
+          >
           </app-custom-input>
-          <div class="text-danger" *ngIf="form.get('feedback')?.errors?.['minlength'] && form.get('feedback')?.touched">
+
+          <!-- <div class="text-danger" *ngIf="form.get('feedback')?.errors?.['minlength'] && form.get('feedback')?.touched">
             <span>Minimum number of characters is 5</span>
-          </div>
-          <button class="btn btn-primary" [disabled]="form.invalid" type="button">Submit feedback</button>
+          </div> -->
+          <button class="btn btn-primary" [disabled]="form.invalid" type="button" >Submit feedback</button>
         </div> 
       </div>
     </div>

@@ -1,0 +1,36 @@
+<div class="container">
+  
+  <div class="form-section">
+    <h2>Add new song 🎵</h2>
+    <input type="text" placeholder="Song title" [ngModel]="newSongTitle()" (ngModelChange)="newSongTitle.set($event)" />
+    <input type="text" placeholder="Artist" [ngModel]="newSongArtist()" (ngModelChange)="newSongArtist.set($event)" />
+    <select [ngModel]="newSongMood()" (ngModelChange)="newSongMood.set($event)">
+      <option value="vesel">Happy 😄</option>
+      <option value="trist">Sad 😢</option>
+      <option value="energic">Energetic ⚡️</option>
+      <option value="calm">Chill 🌙</option>
+    </select>
+    <button (click)="addSong()">Add Song!</button>
+  </div>
+
+  <div class="stats-panel">
+    <h3>📊 Stats</h3>
+    <p>Total of logged songs: <strong>{{ totalSongs() }}</strong></p>
+    <ul>
+      <li>Happy: <strong>{{ happyCount() }}</strong></li>
+      <li>Sad: <strong>{{ sadCount() }}</strong></li>
+      <li>Energetic: <strong>{{ energeticCount() }}</strong></li>
+      <li>Chill: <strong>{{ chillCount() }}</strong></li>
+    </ul>
+  </div>
+
+  <div class="list-section">
+    <h2>Logged songs</h2>
+    <ul>
+      <li *ngFor="let song of loggedSongs()">
+        <strong>{{ song.title }}</strong> by {{ song.artist }} (Mood: {{ song.mood }})
+      </li>
+    </ul>
+  </div>
+
+</div>
