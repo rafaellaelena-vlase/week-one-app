@@ -26,6 +26,7 @@ import { Settings } from './features/settings/settings';
 import { CustomInput } from './features/custom-input/custom-input';
 import { MusicStats } from './features/music-stats/music-stats';
 import { CustomDirective } from './features/directives/custom-directive';
+import { InvitePreview } from './features/invite-preview/invite-preview';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { CustomDirective } from './features/directives/custom-directive';
     CustomInput,
     MusicStats,
     CustomDirective,
+    InvitePreview,
   ],
   imports: [
     BrowserModule,

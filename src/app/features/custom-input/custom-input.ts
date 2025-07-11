@@ -1,6 +1,6 @@
 import { Component, Input, Self } from '@angular/core';
 import { FormControl, ControlValueAccessor, NgControl } from '@angular/forms';
-import { CustomInputConfigurator } from '../interfaces/custom-input-configurator';
+import { CustomInputConfigurator, InputRestrictions } from '../interfaces/custom-input-configurator';
 
 @Component({
   selector: 'app-custom-input',
@@ -16,6 +16,7 @@ export class CustomInput implements ControlValueAccessor {
     // control: FormControl = new FormControl();
 
     @Input() customConfig!: CustomInputConfigurator;
+    @Input() restrictions: InputRestrictions = {};
 
     disabled = false;
     value: any = '';

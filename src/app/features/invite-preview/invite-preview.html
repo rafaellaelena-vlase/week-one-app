@@ -1,0 +1,51 @@
+<div class="page-container">
+
+  <div class="form-container" [formGroup]="form">
+    <h2>Complete the invite for your friends</h2>
+    <p>Fill in the details below to create a personalized invitation.</p>
+    <div class="input-group">
+      <label for="name">Name:</label>
+      <app-custom-input
+        formControlName="name"
+        placeholder="_______________"
+        [restrictions]="{ onlyLetters: true }">
+      </app-custom-input>
+    </div>
+
+    <div class="input-group">
+      <label for="email">Email:</label>
+      <app-custom-input
+        formControlName="email"
+        placeholder="email@example.com"
+        type="email">
+      </app-custom-input>
+    </div>
+
+    <div class="input-group">
+      <label for="code">Access Code:</label>
+      <app-custom-input
+        formControlName="code"
+        placeholder="-------"
+        [restrictions]="{ onlyNumbers: true }">
+      </app-custom-input>
+    </div>
+  </div>
+
+  <div class="preview-container">
+    <div class="invitation-card">
+      <div class="card-header">
+        <h3>Join me on this amazing app!</h3>
+      </div>
+      <div class="card-body">
+        <p>Hello friend, <strong>{{ namePreview }}</strong>!</p>
+        <p>I am waiting for you to join me on <strong>Music Mood Logger</strong>. Use my referral email below to enter the app:</p>
+        <p class="email-display">{{ emailPreview }}</p>
+      </div>
+      <div class="card-footer">
+        <p>Use this one time use code to gain access:</p>
+        <span class="access-code">{{ codePreview }}</span>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -14,3 +14,11 @@ export interface CustomInputConfigurator {
     input?: (event: Event) => void;
     customDirective? : boolean;
 }
+
+export interface InputRestrictions {
+  onlyNumbers?: boolean;
+  onlyLetters?: boolean;
+  noSpecialChars?: boolean;
+  upperCase?: boolean;
+  lowerCase?: boolean;
+}

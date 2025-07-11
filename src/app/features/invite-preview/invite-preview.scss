@@ -1,0 +1,118 @@
+.page-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px; 
+  padding: 25px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  background-color: #f4f7f6;
+  align-items: flex-start;
+}
+
+.form-container {
+  flex: 1;
+  min-width: 320px;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.form-container h2 {
+  margin-top: 0;
+  font-size: 1.8rem;
+  color: #333;
+}
+
+.form-container p {
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.input-group {
+  margin-bottom: 20px; 
+}
+
+.input-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: #4A5568; 
+  font-size: 0.9rem;
+  letter-spacing: 0.5px; 
+}
+
+.preview-container {
+  flex: 1;
+  min-width: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.invitation-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  color: #2c3e50; 
+  background: linear-gradient(135deg, #a8edea, #fed6e3);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header {
+  text-align: center;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.card-body {
+  padding: 25px 0;
+  line-height: 1.7;
+}
+
+.card-body p {
+  margin: 10px 0;
+}
+
+.card-body strong {
+  font-weight: 600;
+}
+
+.email-display {
+  font-style: italic;
+  color: #34495e;
+  word-wrap: break-word; 
+}
+
+.card-footer {
+  margin-top: 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.3);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.card-footer p {
+  margin: 0 0 10px 0;
+  font-size: 0.9rem;
+}
+
+.access-code {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2c3e50;
+  letter-spacing: 5px;
+  background-color: #fff;
+  padding: 8px 20px;
+  border-radius: 8px;
+  border: 2px dashed #a8edea;
+}

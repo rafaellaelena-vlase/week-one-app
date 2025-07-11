@@ -55,6 +55,15 @@
         <mat-icon>graphic_eq</mat-icon>
         <span>Music Stats</span>
       </button>
+
+      <button
+        mat-list-item
+        [ngClass]="{ selected: selected === 'invite' }"
+        (click)="setSelected('invite')"
+      >
+        <mat-icon> mail_outline</mat-icon>
+        <span>Invite</span>
+      </button>
     </mat-nav-list>
   </mat-sidenav>
 
@@ -73,6 +82,7 @@
       <app-profile *ngIf="selected === 'profile'"></app-profile>
       <app-settings *ngIf="selected === 'settings'"></app-settings>
       <app-music-stats *ngIf="selected === 'stats'"></app-music-stats>
+      <app-invite-preview *ngIf="selected === 'invite'"></app-invite-preview>
 
       <div *ngIf="selected === 'contact'"  [formGroup]="form" style="
             display: flex;
