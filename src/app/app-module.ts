@@ -1,5 +1,6 @@
 import { NgModule, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -27,7 +28,7 @@ import { CustomInput } from './features/custom-input/custom-input';
 import { MusicStats } from './features/music-stats/music-stats';
 import { CustomDirective } from './features/directives/custom-directive';
 import { InvitePreview } from './features/invite-preview/invite-preview';
-
+import { LyricsFinder } from './features/lyrics-finder/lyrics-finder';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { InvitePreview } from './features/invite-preview/invite-preview';
     MusicStats,
     CustomDirective,
     InvitePreview,
+    LyricsFinder,
   ],
   imports: [
     BrowserModule,
@@ -57,12 +59,13 @@ import { InvitePreview } from './features/invite-preview/invite-preview';
     MatListModule,
     ReactiveFormsModule,
     MatSlideToggle,
-    MatError
+    MatError,
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
-    provideClientHydration(withEventReplay())
+    provideClientHydration(withEventReplay()),
+    provideHttpClient(withFetch())
   ],
   bootstrap: [App]
 })

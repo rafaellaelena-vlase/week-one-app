@@ -1,0 +1,23 @@
+<div class="lyrics-container"> 
+    <h2>Lyrics Finder</h2>
+    <div class="lyrics-form">
+        <input type="text" placeholder="Artist" [(ngModel)]="artist" />
+        <input type="text" placeholder="Song" [(ngModel)]="song" />
+        <button (click)="findLyrics()" [disabled]="!artist || !song || isLoading">
+            {{ isLoading ? 'Loading...' : 'Find Lyrics' }}
+        </button>
+    </div>
+
+    <div class="lyrics-result" >
+        <div *ngIf="isLoading">Loading lyrics...</div>
+
+        <div *ngIf="lyrics" class="lyrics-display">
+            <h3>Lyrics for {{ foundSong }} by {{ foundArtist }}</h3>
+            <pre>{{ lyrics }}</pre>
+        </div>
+
+        <div *ngIf="error" class="error-message">
+            <p>Error: {{ error }}</p>
+        </div>
+    </div>
+</div>
