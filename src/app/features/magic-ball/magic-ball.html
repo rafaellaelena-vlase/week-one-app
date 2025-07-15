@@ -1,0 +1,41 @@
+<div class="magic-ball-container">
+    <h2>🔮 The Magic Ball</h2>
+
+    <div class="magic-ball-form-area">
+        <input
+            type="text"
+            placeholder="Ask your question..."
+            [(ngModel)]="question"
+            class="magic-ball-input"
+            (keyup.enter)="askMagicBall()">
+        
+        <button (click)="askMagicBall()" [disabled]="!question|| isLoading">
+            {{ isLoading ? 'Loading...' : 'Ask question' }}
+        </button>
+    </div>
+
+    <div class="result-area">
+        <div *ngIf="isLoading" >Loading reading...</div>
+    
+        <div *ngIf="response" class="response-card">
+            <!-- <p class="question">Your question: "{{ response.question }}"</p> -->
+            <p class="reading">The answer: <strong>"{{ response.reading }}"</strong></p>
+        </div>
+
+    <div *ngIf="error" class="error-message">
+      {{ error }}
+    </div>
+  </div>
+</div>
+
+<div class="history-container" *ngIf="questionHistory.length > 0">
+  <h3>Question history</h3>
+  <ul>
+    <li *ngFor="let item of questionHistory">
+      <span>{{ item.questionText }}</span>
+      <button class="delete-btn" (click)="deleteQuestionFromHistory(item.id)">
+        Delete
+      </button>
+    </li>
+  </ul>
+</div>

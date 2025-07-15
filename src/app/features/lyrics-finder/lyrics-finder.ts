@@ -20,7 +20,7 @@ export class LyricsFinder implements OnInit{
   isLoading: boolean = false;
   error: string | null = null;
 
-   private destroy$ = new Subject<void>();
+  private destroy$ = new Subject<void>();
 
   constructor(private api: Api, private cdr: ChangeDetectorRef) {
   }
@@ -52,12 +52,12 @@ export class LyricsFinder implements OnInit{
       error: (err) => {
         this.error = 'Lyrics not found';
         this.isLoading = false;
-        this.cdr.detectChanges();
+        //this.cdr.detectChanges();
         console.error(err);
       },
       complete: () => {
         this.isLoading = false;
-        this.cdr.detectChanges();
+        //this.cdr.detectChanges();
       }
     });
   }

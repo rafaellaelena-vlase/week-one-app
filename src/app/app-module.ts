@@ -29,6 +29,7 @@ import { MusicStats } from './features/music-stats/music-stats';
 import { CustomDirective } from './features/directives/custom-directive';
 import { InvitePreview } from './features/invite-preview/invite-preview';
 import { LyricsFinder } from './features/lyrics-finder/lyrics-finder';
+import { MagicBall } from './features/magic-ball/magic-ball';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { LyricsFinder } from './features/lyrics-finder/lyrics-finder';
     CustomDirective,
     InvitePreview,
     LyricsFinder,
+    MagicBall,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,7 @@ import { LyricsFinder } from './features/lyrics-finder/lyrics-finder';
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideZonelessChangeDetection(),
+    // provideZonelessChangeDetection(),
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch())
   ],

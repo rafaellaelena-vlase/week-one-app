@@ -73,6 +73,16 @@
         <mat-icon>library_music</mat-icon>
         <span>Find Lyrics</span>
       </button>
+
+      <button
+        mat-list-item
+        [ngClass]="{ selected: selected === 'eightball' }"
+        (click)="setSelected('eightball')"
+      >
+        <mat-icon>stars</mat-icon>
+        <span>Magic Ball</span>
+      </button>
+
     </mat-nav-list>
   </mat-sidenav>
 
@@ -93,6 +103,7 @@
       <app-music-stats *ngIf="selected === 'stats'"></app-music-stats>
       <app-invite-preview *ngIf="selected === 'invite'"></app-invite-preview>
       <app-lyrics-finder *ngIf="selected === 'lyrics'"></app-lyrics-finder>
+      <app-magic-ball *ngIf="selected === 'eightball'"></app-magic-ball>
 
       <div *ngIf="selected === 'contact'"  [formGroup]="form" style="
             display: flex;

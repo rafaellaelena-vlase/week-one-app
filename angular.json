@@ -47,7 +47,7 @@
               "entry": "src/server.ts"
             },
             "polyfills": [
-              "@angular/localize/init"
+              "zone.js"
             ]
           },
           "configurations": {
@@ -76,6 +76,9 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
+          "options": {
+            "proxyConfig": "proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "buildTarget": "music-mood-logger:build:production"
@@ -109,7 +112,7 @@
               "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
             ],
             "polyfills": [
-              "@angular/localize/init"
+              "zone.js"
             ]
           }
         }
