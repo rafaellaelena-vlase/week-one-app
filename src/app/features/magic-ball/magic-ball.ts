@@ -57,12 +57,12 @@ export class MagicBall implements OnInit{
       next: (response) => {
         this.response = response;
       },
-      error: (err) => {
-        this.error = 'Error fetching response from Magic Ball';
-        this.isLoading = false;
-        //this.cdr.detectChanges();
-        console.error(err);
-      },
+      // error: (err) => {
+      //   this.error = 'Error fetching response from Magic Ball';
+      //   this.isLoading = false;
+      //   //this.cdr.detectChanges();
+      //   console.error(err);
+      // },
       complete: () => {
         this.isLoading = false;
         //this.cdr.detectChanges();

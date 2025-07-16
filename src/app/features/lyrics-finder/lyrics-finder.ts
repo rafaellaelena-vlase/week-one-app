@@ -49,12 +49,12 @@ export class LyricsFinder implements OnInit{
         this.foundArtist = this.artist;
         this.foundSong = this.song;
       },
-      error: (err) => {
-        this.error = 'Lyrics not found';
-        this.isLoading = false;
-        //this.cdr.detectChanges();
-        console.error(err);
-      },
+      // error: (err) => {
+      //   this.error = 'Lyrics not found';
+      //   this.isLoading = false;
+      //   //this.cdr.detectChanges();
+      //   console.error(err);
+      // },
       complete: () => {
         this.isLoading = false;
         //this.cdr.detectChanges();

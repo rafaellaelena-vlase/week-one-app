@@ -5,3 +5,17 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 /* Importing Bootstrap SCSS file. */
 @import 'bootstrap/scss/bootstrap';
+
+
+.error-snackbar {
+  background-color: #d32f2f;
+  color: white;
+}
+
+.error-snackbar .mat-mdc-button-base {
+  color: white;
+}
+
+.error-snackbar .mdc-snackbar__label {
+  font-weight: 500; 
+}

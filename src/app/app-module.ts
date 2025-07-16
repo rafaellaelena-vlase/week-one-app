@@ -1,6 +1,6 @@
 import { NgModule, provideBrowserGlobalErrorListeners, provideZonelessChangeDetection } from '@angular/core';
 import { BrowserModule, provideClientHydration, withEventReplay } from '@angular/platform-browser';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
 
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -16,6 +16,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatSlideToggle } from '@angular/material/slide-toggle';
 import { MatError } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
@@ -30,6 +31,10 @@ import { CustomDirective } from './features/directives/custom-directive';
 import { InvitePreview } from './features/invite-preview/invite-preview';
 import { LyricsFinder } from './features/lyrics-finder/lyrics-finder';
 import { MagicBall } from './features/magic-ball/magic-ball';
+
+import { loggingInterceptor } from './features/interceptors/logging-interceptor';
+import { errorInterceptor } from './features/interceptors/error-interceptor';
+import { authInterceptor } from './features/interceptors/auth-interceptor';
 
 @NgModule({
   declarations: [
@@ -62,12 +67,21 @@ import { MagicBall } from './features/magic-ball/magic-ball';
     ReactiveFormsModule,
     MatSlideToggle,
     MatError,
+    MatSnackBarModule,
+    
+    
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
     // provideZonelessChangeDetection(),
     provideClientHydration(withEventReplay()),
-    provideHttpClient(withFetch())
+    provideHttpClient(withFetch(), withInterceptors([loggingInterceptor, errorInterceptor, authInterceptor])),
+
+    // { 
+    //   provide: HTTP_INTERCEPTORS, 
+    //   useClass: LoggingInterceptor, 
+    //   multi: true 
+    // }
   ],
   bootstrap: [App]
 })
