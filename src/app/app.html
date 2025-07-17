@@ -1,3 +1,5 @@
+<app-loading-indicator></app-loading-indicator>
+
 <mat-sidenav-container class="sidenav-container">
 
   <mat-sidenav #drawer mode="over" class="sidenav">
@@ -97,7 +99,7 @@
 
     <div class="content">
       <app-mood-logger *ngIf="selected === 'mood'"></app-mood-logger>
-      <app-home *ngIf="selected === 'home'"></app-home>
+      <!-- <app-home *ngIf="selected === 'home'"></app-home> -->
       <app-profile *ngIf="selected === 'profile'"></app-profile>
       <app-settings *ngIf="selected === 'settings'"></app-settings>
       <app-music-stats *ngIf="selected === 'stats'"></app-music-stats>
@@ -177,3 +179,6 @@
   </mat-sidenav-content>
 
 </mat-sidenav-container>
+
+
+<router-outlet></router-outlet>
