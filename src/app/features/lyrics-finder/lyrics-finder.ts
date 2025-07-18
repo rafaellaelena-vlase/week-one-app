@@ -1,5 +1,5 @@
-import { Component, ChangeDetectorRef, OnInit  } from '@angular/core';
-
+import { Component, OnInit  } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router'; 
 import { Api } from '../services/api';
 import { Subject, takeUntil } from 'rxjs';
 
@@ -22,10 +22,10 @@ export class LyricsFinder implements OnInit{
 
   private destroy$ = new Subject<void>();
 
-  constructor(private api: Api, private cdr: ChangeDetectorRef) {
+  constructor(private api: Api, private route:ActivatedRoute, private router: Router) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.artist = '';
     this.song = '';
     this.lyrics = null;
@@ -33,14 +33,37 @@ export class LyricsFinder implements OnInit{
     this.foundSong = null;
     this.isLoading = false;
     this.error = null;
+
+
+    this.route.paramMap.subscribe(params => {
+      const artistFromURL = params.get('artist');
+      const songFromURL = params.get('song');
+
+      if (artistFromURL && songFromURL) {
+        this.artist = decodeURIComponent(artistFromURL);
+        this.song = decodeURIComponent(songFromURL);
+
+        this.findLyrics();
+      }
+    });
+  }
+
+  searchFromInput(): void {
+    this.router.navigate(
+      ['/lyrics-finder'],
+      {
+        queryParams: {
+          artist: this.artist,
+          song: this.song
+        }
+      }
+    );
+    this.findLyrics();
   }
 
   findLyrics() {
-    // this.lyrics = null;
-    // this.foundArtist = null;
-    // this.foundSong = null;
-    // this.isLoading = true;
-    // this.error = null;
+    if (!this.artist || !this.song) return;
+    console.log('Se încearcă navigarea cu:', { artist: this.artist, song: this.song });
 
     this.api.getLyrics(this.artist, this.song).pipe(takeUntil(this.destroy$))
     .subscribe({   
@@ -49,15 +72,8 @@ export class LyricsFinder implements OnInit{
         this.foundArtist = this.artist;
         this.foundSong = this.song;
       },
-      // error: (err) => {
-      //   this.error = 'Lyrics not found';
-      //   this.isLoading = false;
-      //   //this.cdr.detectChanges();
-      //   console.error(err);
-      // },
       complete: () => {
         this.isLoading = false;
-        //this.cdr.detectChanges();
       }
     });
   }

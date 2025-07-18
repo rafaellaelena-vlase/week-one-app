@@ -51,6 +51,10 @@ const routes: Routes = [
     component: LyricsFinder
   },
   {
+    path: 'lyrics-finder/:artist/:song',
+    component: LyricsFinder
+  },
+  {
     path: 'magic-ball',
     component: MagicBall
   },
