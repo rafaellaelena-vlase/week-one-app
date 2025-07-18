@@ -38,7 +38,6 @@ import { errorInterceptor } from './features/interceptors/error-interceptor';
 import { authInterceptor } from './features/interceptors/auth-interceptor';
 import { LoggerInterceptor } from './features/interceptors/logger-interceptor';
 import { LoadingIndicator } from './features/loading-indicator/loading-indicator';
-import { provideRouter, Routes } from '@angular/router';
 
 
 @NgModule({
