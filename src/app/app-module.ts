@@ -39,6 +39,7 @@ import { authInterceptor } from './features/interceptors/auth-interceptor';
 import { LoggerInterceptor } from './features/interceptors/logger-interceptor';
 import { LoadingIndicator } from './features/loading-indicator/loading-indicator';
 import { Feedback } from './features/feedback/feedback';
+import { PageNotFound } from './features/page-not-found/page-not-found';
 
 
 @NgModule({
@@ -56,6 +57,7 @@ import { Feedback } from './features/feedback/feedback';
     MagicBall,
     LoadingIndicator,
     Feedback,
+    PageNotFound,
   ],
   imports: [
     BrowserModule,

@@ -7,6 +7,9 @@
       <a 
         mat-list-item
         routerLink="/home"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+        (click)="drawer.close()"
       >
         <mat-icon>home</mat-icon>
         <span>Home</span>
@@ -15,6 +18,8 @@
       <a 
         mat-list-item
         routerLink="/mood-logger"
+        routerLinkActive="active"
+        (click)="drawer.close()"
       >
         <mat-icon>music_note</mat-icon>
         <span>Mood</span>
@@ -23,6 +28,8 @@
       <a 
         mat-list-item
         routerLink="/profile"
+        routerLinkActive="active"
+        (click)="drawer.close()"
       >
         <mat-icon>person</mat-icon>
         <span>Profile</span>
@@ -31,6 +38,8 @@
       <a 
         mat-list-item
         routerLink="/settings"
+        routerLinkActive="active"
+        (click)="drawer.close()"
       >
         <mat-icon>settings</mat-icon>
         <span>Settings</span>
@@ -39,6 +48,8 @@
       <a 
         mat-list-item
         routerLink="/feedback"
+        routerLinkActive="active"
+        (click)="drawer.close()"
       >
         <mat-icon>feedback</mat-icon>
         <span>Give feedback</span>
@@ -47,6 +58,8 @@
       <a 
         mat-list-item
         routerLink="/stats"
+        routerLinkActive="active"
+        (click)="drawer.close()"
       >
         <mat-icon>graphic_eq</mat-icon>
         <span>Music Stats</span>
@@ -55,6 +68,8 @@
       <a 
         mat-list-item
         routerLink="/invite"
+        routerLinkActive="active"
+        (click)="drawer.close()"
       >
         <mat-icon> mail_outline</mat-icon>
         <span>Invite</span>
@@ -63,6 +78,8 @@
       <a 
         mat-list-item
         routerLink="/lyrics-finder"
+        routerLinkActive="active"
+        (click)="drawer.close()"
       >
         <mat-icon>library_music</mat-icon>
         <span>Find Lyrics</span>
@@ -71,6 +88,8 @@
       <a 
         mat-list-item
         routerLink="/magic-ball"
+        routerLinkActive="active"
+        (click)="drawer.close()"
       >
         <mat-icon>stars</mat-icon>
         <span>Magic Ball</span>

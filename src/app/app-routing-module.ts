@@ -10,9 +10,9 @@ import { MusicStats } from './features/music-stats/music-stats';
 import { InvitePreview } from './features/invite-preview/invite-preview';
 import { MagicBall } from './features/magic-ball/magic-ball';
 import { Feedback } from './features/feedback/feedback';
+import { PageNotFound } from './features/page-not-found/page-not-found';
 
 const routes: Routes = [
-
   {
     path: 'home',
     component: Home,
@@ -56,7 +56,7 @@ const routes: Routes = [
   },
   {
     path : '**',
-    redirectTo: 'home'
+    component: PageNotFound 
   }
 ];
 

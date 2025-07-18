@@ -10,11 +10,4 @@ import { CustomInputConfigurator } from './features/interfaces/custom-input-conf
 })
 export class App {
   protected title = 'music-mood-logger';
-  // selected="home";
-
-  // setSelected(naem : string) {
-  //   this.selected=naem;
-  // }
-
-  
 }
