@@ -4,15 +4,6 @@
 
   <mat-sidenav #drawer mode="over" class="sidenav">
     <mat-nav-list>
-      <!-- <button
-        mat-list-item
-        [ngClass]="{ selected: selected === 'home' }"
-        (click)="setSelected('home')"
-      >
-        <mat-icon>home</mat-icon>
-        <span>Home</span>
-      </button> -->
-
       <a 
         mat-list-item
         routerLink="/home"
@@ -20,15 +11,6 @@
         <mat-icon>home</mat-icon>
         <span>Home</span>
       </a>
-
-      <!-- <button
-        mat-list-item
-        [ngClass]="{ selected: selected === 'mood' }"
-        (click)="setSelected('mood')"
-      >
-        <mat-icon>music_note</mat-icon>
-        <span>Mood</span>
-      </button> -->
 
       <a 
         mat-list-item
@@ -38,15 +20,6 @@
         <span>Mood</span>
       </a>
 
-      <!-- <button
-        mat-list-item
-        [ngClass]="{ selected: selected === 'profile' }"
-        (click)="setSelected('profile')"
-      >
-        <mat-icon>person</mat-icon>
-        <span>Profile</span>
-      </button> -->
-
       <a 
         mat-list-item
         routerLink="/profile"
@@ -54,15 +27,6 @@
         <mat-icon>person</mat-icon>
         <span>Profile</span>
       </a>
-
-      <!-- <button
-        mat-list-item
-        [ngClass]="{ selected: selected === 'settings' }"
-        (click)="setSelected('settings')"
-      >
-        <mat-icon>settings</mat-icon>
-        <span>Settings</span>
-      </button> -->
 
       <a 
         mat-list-item
@@ -72,15 +36,6 @@
         <span>Settings</span>
       </a>
 
-      <!-- <button
-        mat-list-item
-        [ngClass]="{ selected: selected === 'contact' }"
-        (click)="setSelected('contact')"
-      >
-        <mat-icon>feedback</mat-icon>
-        <span>Give feedback</span>
-      </button> -->
-
       <a 
         mat-list-item
         routerLink="/feedback"
@@ -88,15 +43,6 @@
         <mat-icon>feedback</mat-icon>
         <span>Give feedback</span>
       </a>
-
-      <!-- <button
-        mat-list-item
-        [ngClass]="{ selected: selected === 'stats' }"
-        (click)="setSelected('stats')"
-      >
-        <mat-icon>graphic_eq</mat-icon>
-        <span>Music Stats</span>
-      </button> -->
 
       <a 
         mat-list-item
@@ -106,15 +52,6 @@
         <span>Music Stats</span>
       </a>
 
-      <!-- <button
-        mat-list-item
-        [ngClass]="{ selected: selected === 'invite' }"
-        (click)="setSelected('invite')"
-      >
-        <mat-icon> mail_outline</mat-icon>
-        <span>Invite</span>
-      </button> -->
-
       <a 
         mat-list-item
         routerLink="/invite"
@@ -123,15 +60,6 @@
         <span>Invite</span>
       </a>
 
-      <!-- <button
-        mat-list-item
-        [ngClass]="{ selected: selected === 'lyrics' }"
-        (click)="setSelected('lyrics')"
-      >
-        <mat-icon>library_music</mat-icon>
-        <span>Find Lyrics</span>
-      </button> -->
-
       <a 
         mat-list-item
         routerLink="/lyrics-finder"
@@ -139,15 +67,6 @@
         <mat-icon>library_music</mat-icon>
         <span>Find Lyrics</span>
       </a>
-
-      <!-- <button
-        mat-list-item
-        [ngClass]="{ selected: selected === 'eightball' }"
-        (click)="setSelected('eightball')"
-      >
-        <mat-icon>stars</mat-icon>
-        <span>Magic Ball</span>
-      </button> -->
 
       <a 
         mat-list-item
@@ -170,84 +89,6 @@
     </mat-toolbar>
 
     <div class="content">
-      <!-- <app-mood-logger *ngIf="selected === 'mood'"></app-mood-logger> -->
-      <!-- <app-home *ngIf="selected === 'home'"></app-home> -->
-      <!-- <app-profile *ngIf="selected === 'profile'"></app-profile> -->
-      <!-- <app-settings *ngIf="selected === 'settings'"></app-settings> -->
-      <!-- <app-music-stats *ngIf="selected === 'stats'"></app-music-stats> -->
-      <!-- <app-invite-preview *ngIf="selected === 'invite'"></app-invite-preview> -->
-      <!-- <app-lyrics-finder *ngIf="selected === 'lyrics'"></app-lyrics-finder> -->
-      <!-- <app-magic-ball *ngIf="selected === 'eightball'"></app-magic-ball> -->
-
-      <div *ngIf="selected === 'contact'"  [formGroup]="form" style="
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 80vh;
-            ">
-        <div *ngIf="selected === 'contact'" style="
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #ccc;
-            box-shadow: 4px 4px 4px #ccc;
-            width: 400px;
-            height: 500px;
-            border-radius: 10px;
-            padding: 20px;
-            gap: 15px;
-            ">
-          <!-- <app-custom-input *ngIf="selected === 'contact'" 
-                            placeholder="Enter your name" 
-                            type="text" 
-                            formControlName="name"
-                            >
-          </app-custom-input> -->
-
-          <app-custom-input *ngIf="selected === 'contact'" 
-            formControlName="name"
-            [customConfig]="inputConfig['name']"
-          >
-          </app-custom-input>
-
-          <!-- <div class="text-danger" *ngIf="form.get('name')?.invalid && (form.get('name')?.touched || form.get('name')?.dirty)">
-            <span>Required</span>
-          </div> -->
-          <!-- <app-custom-input *ngIf="selected === 'contact'" 
-                            placeholder="Enter your email address" 
-                            type="email" 
-                            formControlName="email"
-                            >
-          </app-custom-input> -->
-
-          <app-custom-input *ngIf="selected === 'contact'" 
-            formControlName="email"
-            [customConfig]="inputConfig['email']"
-          >
-          </app-custom-input>
-
-          <!-- <div class="text-danger" *ngIf="form.get('email')?.errors?.['email'] && form.get('email')?.touched">
-            <span>Wrong email format</span>
-          </div> -->
-          <!-- <app-custom-input *ngIf="selected === 'contact'" 
-                            placeholder="Write your feedback..." 
-                            type="textarea" 
-                            formControlName="feedback"
-                            >
-          </app-custom-input> -->
-
-          <app-custom-input *ngIf="selected === 'contact'" 
-            formControlName="feedback"
-            [customConfig]="inputConfig['feedback']"
-          >
-          </app-custom-input>
-
-          <!-- <div class="text-danger" *ngIf="form.get('feedback')?.errors?.['minlength'] && form.get('feedback')?.touched">
-            <span>Minimum number of characters is 5</span>
-          </div> -->
-          <button class="btn btn-primary" [disabled]="form.invalid" type="button" >Submit feedback</button>
-        </div> 
-      </div>
-
       <router-outlet></router-outlet>
     </div>
   </mat-sidenav-content>

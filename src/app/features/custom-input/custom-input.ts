@@ -9,12 +9,6 @@ import { CustomInputConfigurator, InputRestrictions } from '../interfaces/custom
   styleUrl: './custom-input.scss'
 })
 export class CustomInput implements ControlValueAccessor {
-    // @Input() placeholder?: string;
-    // @Input() type?: 'text' | 'email' | 'number' | 'textarea' | 'password';
-    // @Input() control: FormControl = new FormControl();
-
-    // control: FormControl = new FormControl();
-
     @Input() customConfig!: CustomInputConfigurator;
     @Input() restrictions: InputRestrictions = {};
 

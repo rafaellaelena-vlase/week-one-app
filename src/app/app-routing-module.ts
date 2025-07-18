@@ -9,6 +9,7 @@ import { CustomInput } from './features/custom-input/custom-input';
 import { MusicStats } from './features/music-stats/music-stats';
 import { InvitePreview } from './features/invite-preview/invite-preview';
 import { MagicBall } from './features/magic-ball/magic-ball';
+import { Feedback } from './features/feedback/feedback';
 
 const routes: Routes = [
 
@@ -35,7 +36,7 @@ const routes: Routes = [
   },
   {
     path: 'feedback',
-    component: CustomInput
+    component: Feedback
   },
   {
     path: 'stats',

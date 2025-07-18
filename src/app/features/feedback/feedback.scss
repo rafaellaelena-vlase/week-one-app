@@ -1,0 +1,18 @@
+.feedback-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ccc;
+    box-shadow: 4px 4px 4px #ccc;
+    width: 400px;
+    height: 500px;
+    border-radius: 10px;
+    padding: 20px;
+    gap: 15px;
+}
