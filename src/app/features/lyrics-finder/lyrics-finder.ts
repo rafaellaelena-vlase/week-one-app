@@ -25,7 +25,7 @@ export class LyricsFinder implements OnInit{
   constructor(private api: Api, private route:ActivatedRoute, private router: Router) {
   }
 
-  ngOnInit(): void {
+  initValues(): void {
     this.artist = '';
     this.song = '';
     this.lyrics = null;
@@ -33,7 +33,10 @@ export class LyricsFinder implements OnInit{
     this.foundSong = null;
     this.isLoading = false;
     this.error = null;
+  }
 
+  ngOnInit(): void {
+    this.initValues();
 
     this.route.paramMap.subscribe(params => {
       const artistFromURL = params.get('artist');
@@ -50,7 +53,7 @@ export class LyricsFinder implements OnInit{
 
   searchFromInput(): void {
     this.router.navigate(
-      ['/lyrics-finder'],
+      ['/lyrics-display'],
       {
         queryParams: {
           artist: this.artist,
@@ -58,7 +61,6 @@ export class LyricsFinder implements OnInit{
         }
       }
     );
-    this.findLyrics();
   }
 
   findLyrics() {

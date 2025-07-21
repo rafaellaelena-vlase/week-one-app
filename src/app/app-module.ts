@@ -40,6 +40,7 @@ import { LoggerInterceptor } from './features/interceptors/logger-interceptor';
 import { LoadingIndicator } from './features/loading-indicator/loading-indicator';
 import { Feedback } from './features/feedback/feedback';
 import { PageNotFound } from './features/page-not-found/page-not-found';
+import { LyricsDisplay } from './features/lyrics-display/lyrics-display';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { PageNotFound } from './features/page-not-found/page-not-found';
     LoadingIndicator,
     Feedback,
     PageNotFound,
+    LyricsDisplay,
   ],
   imports: [
     BrowserModule,

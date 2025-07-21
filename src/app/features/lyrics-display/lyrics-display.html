@@ -1,0 +1,12 @@
+<div class="lyrics-result" >
+    <div *ngIf="isLoading">Loading lyrics...</div>
+
+    <div *ngIf="lyrics" class="lyrics-display">
+        <h3>Lyrics for {{ song }} by {{ artist }}</h3>
+        <pre>{{ lyrics }}</pre>
+    </div>
+
+    <div *ngIf="error" class="error-message">
+        <p>Error: {{ error }}</p>
+    </div>
+</div>

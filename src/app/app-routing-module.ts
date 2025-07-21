@@ -11,6 +11,7 @@ import { InvitePreview } from './features/invite-preview/invite-preview';
 import { MagicBall } from './features/magic-ball/magic-ball';
 import { Feedback } from './features/feedback/feedback';
 import { PageNotFound } from './features/page-not-found/page-not-found';
+import { LyricsDisplay } from './features/lyrics-display/lyrics-display';
 
 const routes: Routes = [
   {
@@ -53,6 +54,10 @@ const routes: Routes = [
   {
     path: 'lyrics-finder/:artist/:song',
     component: LyricsFinder
+  },
+  {
+    path: 'lyrics-display',
+    component: LyricsDisplay
   },
   {
     path: 'magic-ball',
