@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-profile',
+  selector: 'app-edit-profile',
   standalone: false,
-  templateUrl: './profile.html',
-  styleUrl: './profile.scss'
+  templateUrl: './edit-profile.html',
+  styleUrl: './edit-profile.scss'
 })
-export class Profile {
+export class EditProfile {
   userObj: any = {
     firstName: '',
     lastName: '',

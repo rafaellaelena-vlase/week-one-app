@@ -12,6 +12,8 @@ import { MagicBall } from './features/magic-ball/magic-ball';
 import { Feedback } from './features/feedback/feedback';
 import { PageNotFound } from './features/page-not-found/page-not-found';
 import { LyricsDisplay } from './features/lyrics-display/lyrics-display';
+import { EditProfile } from './features/edit-profile/edit-profile';
+import { ViewProfile } from './features/view-profile/view-profile';
 
 const routes: Routes = [
   {
@@ -29,7 +31,22 @@ const routes: Routes = [
   },
   {
     path: 'profile',
-    component: Profile
+    component: Profile,
+    children: [
+      {
+        path: 'edit',
+        component: EditProfile
+      },
+      {
+        path: 'view',
+        component: ViewProfile
+      },
+      {
+        path: '',
+        redirectTo: 'view',
+        pathMatch: 'full'
+      }
+    ]
   },
   {
     path: 'settings',

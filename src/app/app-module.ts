@@ -41,6 +41,8 @@ import { LoadingIndicator } from './features/loading-indicator/loading-indicator
 import { Feedback } from './features/feedback/feedback';
 import { PageNotFound } from './features/page-not-found/page-not-found';
 import { LyricsDisplay } from './features/lyrics-display/lyrics-display';
+import { EditProfile } from './features/edit-profile/edit-profile';
+import { ViewProfile } from './features/view-profile/view-profile';
 
 
 @NgModule({
@@ -60,6 +62,8 @@ import { LyricsDisplay } from './features/lyrics-display/lyrics-display';
     Feedback,
     PageNotFound,
     LyricsDisplay,
+    EditProfile,
+    ViewProfile,
   ],
   imports: [
     BrowserModule,
