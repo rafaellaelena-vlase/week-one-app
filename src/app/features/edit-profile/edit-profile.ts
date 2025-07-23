@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { CanComponentDeactivate } from '../services/leave-guard';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-profile',
@@ -6,7 +8,10 @@ import { Component } from '@angular/core';
   templateUrl: './edit-profile.html',
   styleUrl: './edit-profile.scss'
 })
-export class EditProfile {
+export class EditProfile implements CanComponentDeactivate{
+
+  @ViewChild('form')
+  editForm!: NgForm;
   userObj: any = {
     firstName: '',
     lastName: '',
@@ -18,5 +23,13 @@ export class EditProfile {
 
   onSave() {
     const formValue = this.userObj;
+    this.editForm.reset(this.userObj);
+  }
+
+  canDeactivate(): boolean {
+    if (this.editForm.dirty) {
+      return confirm('You have unsaved changes. Do you really want to leave?');
+    }
+    return true;
   }
 }

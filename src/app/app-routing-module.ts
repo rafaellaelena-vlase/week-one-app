@@ -14,6 +14,8 @@ import { PageNotFound } from './features/page-not-found/page-not-found';
 import { LyricsDisplay } from './features/lyrics-display/lyrics-display';
 import { EditProfile } from './features/edit-profile/edit-profile';
 import { ViewProfile } from './features/view-profile/view-profile';
+import { authGuard } from './features/services/auth-guard';
+import { leaveGuard } from './features/services/leave-guard';
 
 const routes: Routes = [
   {
@@ -32,10 +34,12 @@ const routes: Routes = [
   {
     path: 'profile',
     component: Profile,
+    canActivate: [authGuard],
     children: [
       {
         path: 'edit',
-        component: EditProfile
+        component: EditProfile,
+        canDeactivate: [leaveGuard]
       },
       {
         path: 'view',

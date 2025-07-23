@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, AsyncValidatorFn, FormBuilder, FormGroup, ValidationErrors, Validators, FormControl } from '@angular/forms';
+import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
 
 @Component({
@@ -12,7 +13,7 @@ export class Home implements OnInit{
   form: FormGroup;
   formMode: 'login' | 'register' = 'login'
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router) {
     this.form = this.fb.group({
       username: ['', {updateOn: 'blur'}],
       email: ['', [Validators.email, Validators.required]],
@@ -47,10 +48,43 @@ export class Home implements OnInit{
   onSubmit(): void {
     if (this.form.invalid) return;
     if (this.formMode === 'login') {
-      console.log("trying to authenticate ", this.form.value);
+      // console.log("trying to authenticate ", this.form.value);
+       if (this.form.get('email')?.invalid || this.form.get('password')?.invalid) {
+        console.error("Invalid login credentials");
+        this.form.markAllAsTouched();
+        return;
+       }
+    
+
+      const username = this.form.get('username')?.value.toLowerCase();
+      let loginSuccess = false;
+
+      if (username === 'admin') {
+        localStorage.setItem('user_token', 'fake-admin-token-123');
+        localStorage.setItem('user_role', 'admin');
+        loginSuccess = true;
+      } else if (existingUsernames.includes(username)) {
+        localStorage.setItem('user_token', 'fake-user-token-456');
+        localStorage.setItem('user_role', 'user');
+        loginSuccess = true;
+      }
+
+      if (loginSuccess) {
+        this.router.navigate(['/profile']);
+      } else {
+        console.error("Invalid login credentials");
+        this.form.get('username')?.setErrors({ invalidLogin: true });
+      }
+
     } else {
-      console.log("trying to login ", this.form.value);
+      if (this.form.invalid) {
+        console.log('invalid register form');
+        this.form.markAllAsTouched();
+        return;
+      }
+      console.log("trying to register with", this.form.value);
     }
+
   }
 
   getControl(name: string) {
