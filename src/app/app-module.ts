@@ -91,7 +91,6 @@ import { ViewProfile } from './features/view-profile/view-profile';
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
-    // provideZonelessChangeDetection(),
     provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch(), withInterceptors([loggingInterceptor, errorInterceptor, authInterceptor]), withInterceptorsFromDi()),
 

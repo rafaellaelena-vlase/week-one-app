@@ -5,7 +5,6 @@ import { Home } from './features/home/home';
 import { MoodLogger } from './features/mood-logger/mood-logger';
 import { Profile } from './features/profile/profile';
 import { Settings } from './features/settings/settings';
-import { CustomInput } from './features/custom-input/custom-input';
 import { MusicStats } from './features/music-stats/music-stats';
 import { InvitePreview } from './features/invite-preview/invite-preview';
 import { MagicBall } from './features/magic-ball/magic-ball';

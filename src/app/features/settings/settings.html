@@ -9,10 +9,6 @@
         <mat-option value="dark">Dark</mat-option>
         <mat-option value="light">Light</mat-option>
       </mat-select>
-      <!--why u no work--> 
-      <!-- <mat-error *ngIf="settingsForm.hasError('darkThemeEmojiConflict') && settingsForm.touched">
-        We don't recommend displaying emojis in dark mode!
-      </mat-error> -->
     </mat-form-field>
     <div class=""text-danger>
         @if(settingsForm.errors?.['darkThemeEmojiConflict'] && settingsForm.touched) {

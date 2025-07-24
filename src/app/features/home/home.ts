@@ -21,9 +21,7 @@ export class Home implements OnInit{
     });
   }
   ngOnInit(): void {
-    
-
-    this.updateValidators();
+  this.updateValidators();
   }
 
   switchFormMode(formMode: 'login' | 'register'): void {

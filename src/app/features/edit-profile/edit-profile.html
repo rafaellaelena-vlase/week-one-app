@@ -22,7 +22,7 @@
     <label >Username</label>
     <div class="input-group has-validation">
       <span class="input-group-text" id="inputGroupPrepend">&#64;</span>
-      <input type="text" name="userName" pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/" #uname="ngModel" [(ngModel)]="userObj.userName" class="form-control">
+      <input type="text" name="userName" pattern='/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/' #uname="ngModel" [(ngModel)]="userObj.userName" class="form-control">
       <div class="text-danger">
         <span *ngIf="uname.errors?.['pattern'] && uname.touched">Invalid Email Format</span>
       </div>

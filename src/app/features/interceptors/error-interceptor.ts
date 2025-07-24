@@ -49,6 +49,3 @@ export const errorInterceptor: HttpInterceptorFn = (
     })
   );
 };
-
-// de facut interceptor pt header
-// http context

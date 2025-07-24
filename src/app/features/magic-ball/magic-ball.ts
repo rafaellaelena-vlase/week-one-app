@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EightBallResponseInterface } from '../interfaces/eight-ball-response-interface';
 import { EightBallRequestInterface } from '../interfaces/eight-ball-request-interface';
 import { Api } from '../services/api';
@@ -23,8 +23,7 @@ export class MagicBall implements OnInit{
 
   private destroy$ = new Subject<void>();
 
-  constructor(private api: Api, private cdr: ChangeDetectorRef) { 
-
+  constructor(private api: Api) { 
   }
 
   ngOnInit() {
@@ -57,15 +56,8 @@ export class MagicBall implements OnInit{
       next: (response) => {
         this.response = response;
       },
-      // error: (err) => {
-      //   this.error = 'Error fetching response from Magic Ball';
-      //   this.isLoading = false;
-      //   //this.cdr.detectChanges();
-      //   console.error(err);
-      // },
       complete: () => {
         this.isLoading = false;
-        //this.cdr.detectChanges();
       }
     });
   }
@@ -87,10 +79,8 @@ export class MagicBall implements OnInit{
       error: (err) => {
         console.error('Error deleting question from history:', err);
         this.error = 'Error deleting question from history';
-        //this.cdr.detectChanges();
       },
       complete: () => {
-        //this.cdr.detectChanges();
       }
     });
   }
